@@ -1,0 +1,16 @@
+- name: Configurar servidor basico
+  hosts: servers
+  become: yes
+
+  tasks:
+    - name: Actualizar paquetes
+      apt:
+        name:
+          - curl
+          - git
+          - vim
+        state: present
+
+    - name: Configurar zona horaria
+      timezone:
+        name: America/La_Paz
